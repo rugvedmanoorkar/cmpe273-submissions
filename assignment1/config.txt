@@ -1,0 +1,7 @@
+pvregro: 
+
+pg_recvlogical -d college--slot test_slot1 --create-slot -P wal2json --username=postgres
+pg_recvlogical -d college--slot test_slot1 --start -o pretty-print=1 -o add-msg-prefixes=wal2json --username=postgres -f -
+
+mongo:
+cluster = MongoClient('mongodb+srv://dbUser:dbUserPassword@cluster0.eodt6.mongodb.net/college?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE',connect=False)

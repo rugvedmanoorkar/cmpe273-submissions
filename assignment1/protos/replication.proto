@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// The replicator definition.
+service Replicator {
+   
+    rpc Replicate (stream JSONPayload) returns (Response) {}
+}
+
+
+message JSONPayload {
+    string partofquery = 1;
+}
+
+
+message Response {
+    string status = 1;
+}

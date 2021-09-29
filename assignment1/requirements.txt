@@ -1,0 +1,11 @@
+Postgres created 
+MongoDB
+wal2json
+grpc wrapper
+
+
+Commands Tested
+1) INSERT INTO college_schema.students(
+	id, first_name, last_name, sjsu_id, email, create_timestamp, update_timestamp)
+	VALUES (46, 'Micheal','Scott' , 'AAA1111', 'ms@dm.com', current_timestamp,' 2021-09-22 19:11:24-07');
+2) DELETE FROM college_schema.students WHERE id = 45

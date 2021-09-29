@@ -1,0 +1,22 @@
+{
+"kind": "insert",
+"schema": "public",
+"table": "table1_with_pk",
+"columnnames": ["a", "b", "c"],
+"columntypes": ["integer", "character varying(30)", "timestamp without time zone"],
+"columnvalues": [1, "Backup and Restore", "2018-03-27 11:58:28.988414"]
+}
+
+
+{
+	"change": [
+		{
+			"kind": "insert",
+			"schema": "public",
+			"table": "table1_with_pk",
+			"columnnames": ["a", "b", "c"],
+			"columntypes": ["integer", "character varying(30)", "timestamp without time zone"],
+			"columnvalues": [1, "Backup and Restore", "2018-03-27 11:58:28.988414"]
+		}
+	]
+}
