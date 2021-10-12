@@ -1,0 +1,172 @@
+1) Shorten URL : POST: http://localhost:5000/shorten
+Request : 
+{
+    "url" :"google.com"
+}
+
+Response: 
+{
+    "shortened_url": {
+        "link": "jXOPdQAkz_jt",
+        "link_clicks": [
+            {
+                "clicks": "0",
+                "date": "string"
+            }
+        ],
+        "long_url": "http://google.com",
+        "unit": "day",
+        "unit_reference": "2021-10-11T17:19:18.904439",
+        "units": "-1"
+    }
+}
+
+2) Create a bitlink : POST: http://localhost:5000/bitlinks/shorten
+REQUEST :
+{
+    "url": "google.com",
+    "long_url": "https://dev.bitly.com",
+    "domain": "bit.ly",
+    "title": "Bitly API Documentation"
+    }
+
+Response: 
+{
+    "shortened_url": {
+        "domain": "bit.ly",
+        "link": "jXOPdQAkz_jt",
+        "link_clicks": [
+            {
+                "clicks": "0",
+                "date": "string"
+            }
+        ],
+        "long_url": "http://google.com",
+        "title": "Bitly API Documentation",
+        "unit": "-1",
+        "unit_reference": "2021-10-11T17:32:14.816435",
+        "units": "day"
+    }
+}
+
+
+REQUEST :
+{
+    "url": "google.com",
+    "long_url": "https://dev.bitly.com",
+    "domain": "bit.ly",
+    "title": "Bitly API Documentation",
+    "tags": [
+        "bitly",
+        "api"
+    ],
+    "deeplinks": [
+        {
+            "app_id": "com.bitly.app",
+            "app_uri_path": "/store?id': '123456",
+            "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app"
+        }
+    ]
+}
+
+
+RESPONSE: {
+    "shortened_url": {
+        "deeplinks": [
+            {
+                "app_id": "com.bitly.app",
+                "app_uri_path": "/store?id': '123456",
+                "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app"
+            }
+        ],
+        "domain": "bit.ly",
+        "link": "jXOPdQAkz_jt",
+        "link_clicks": [
+            {
+                "clicks": "0",
+                "date": "string"
+            }
+        ],
+        "long_url": "http://google.com",
+        "tags": [
+            "bitly",
+            "api"
+        ],
+        "title": "Bitly API Documentation",
+        "unit": "-1",
+        "unit_reference": "2021-10-11T17:35:07.930099",
+        "units": "day"
+    }
+}
+
+
+3) UPDATE BITLINKS: POST - http://localhost:5000/bitlinks/jXOPdQAkz_jt
+
+REQUEST: {
+    "url": "google.com",
+    "long_url": "http://www.google.com",
+    "domain": "bit.ly",
+    "title": "Google Home page",
+    "tags": [
+        "google",
+        "search"
+    ],
+    "deeplinks": [
+        {
+            "app_id": "com.google.app",
+            "app_uri_path": "/store?id': '123456",
+            "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app"
+        }
+    ]
+}
+
+RESPONSE: 
+{
+    "url": "google.com",
+    "long_url": "http://www.google.com",
+    "domain": "bit.ly",
+    "title": "Google Home page",
+    "tags": [
+        "google",
+        "search"
+    ],
+    "deeplinks": [
+        {
+            "app_id": "com.google.app",
+            "app_uri_path": "/store?id': '123456",
+            "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app"
+        }
+    ]
+}
+
+
+4) RETRIEVE BITLINK : GET - http://localhost:5000/bitlinks/jXOPdQAkz_jt
+
+RESPONSE: {
+    "jXOPdQAkz_jt": {
+        "deeplinks": [
+            {
+                "app_id": "com.google.app",
+                "app_uri_path": "/store?id': '123456",
+                "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app"
+            }
+        ],
+        "tags": [
+            "google",
+            "search"
+        ],
+        "title": "Google Home page"
+    }
+}
+
+5) GET CLICKS: GET - http://localhost:5000/bitlinks/jXOPdQAkz_jt/clicks
+
+RESPONSE:
+{
+    "jXOPdQAkz_jt": [
+        {
+            "clicks": "5",
+            "date": "string"
+        }
+    ]
+}
