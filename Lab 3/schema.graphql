@@ -1,0 +1,41 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Student {
+    id: Int!
+    name: String!
+    
+}
+
+type StudentResult {
+    success: Boolean!
+    errors: [String]
+    students: [Student]
+}
+
+type Class {
+    id: Int!
+    name: String!
+    students: [Student]
+}
+
+type ClassResult {
+    success: Boolean!
+    errors: [String]
+    classes: [Class]
+}
+
+type Query {
+    students: StudentResult!
+    student(id: Int!): Student
+    all_classes: ClassResult!
+    classes(id: Int!): Class
+}
+
+type Mutation {
+    create_student(name: String!): StudentResult!
+    create_class(name: String!, student_ids: [Int]!): ClassResult!
+    add_student_to_class(id: Int!, student_id: Int!): ClassResult!
+}
