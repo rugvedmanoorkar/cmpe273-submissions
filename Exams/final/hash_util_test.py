@@ -7,7 +7,7 @@ from hash_util import HRWHash
 
 NODES = [
     Node(name='Alex', host='1.2.3.1', port=80, hrw_weight=100, keys=[]),
-    Node(name='Bob', host='1.2.3.2', port=80, hrw_weight=200, keys=[]),
+    Node(name='Bob', host='1.2.3.2', port=80, hrw_weight=100, keys=[]),
     Node(name='Cody', host='1.2.3.3',port=80, hrw_weight=100, keys=[])
 ]
 MAX_KEYS = 100
